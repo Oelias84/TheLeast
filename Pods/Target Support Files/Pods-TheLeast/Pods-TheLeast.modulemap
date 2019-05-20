@@ -1,0 +1,6 @@
+framework module Pods_TheLeast {
+  umbrella header "Pods-TheLeast-umbrella.h"
+
+  export *
+  module * { export * }
+}
