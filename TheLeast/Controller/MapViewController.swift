@@ -383,7 +383,7 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
             cheapOrTipp = "Customer Cheapped"
             
         }
-        let alertController = alertService.cheapOrTippAlert(mainTitle: cheapOrTipp, descText: "Please enter the customer door number", isTipped: isTipped)
+        let alertController = alertService.cheapOrTippAlert(mainTitle: cheapOrTipp, descText: "\(newCustomer.streetName + " " + newCustomer.houseNumber)", isTipped: isTipped)
         alertController.delegate = self
         present(alertController, animated: true)
         

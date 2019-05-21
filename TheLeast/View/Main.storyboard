@@ -336,11 +336,11 @@
                                     <action selector="myLocationButton:" destination="mhZ-8H-u4Y" eventType="touchUpInside" id="8y0-II-UYv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="centerCross" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-tN-4vd">
-                                <rect key="frame" x="177.66666666666666" y="416" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="centerPin" highlightedImage="centerPin" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-tN-4vd">
+                                <rect key="frame" x="175" y="413.66666666666669" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="FV3-LX-hNV"/>
-                                    <constraint firstAttribute="width" constant="20" id="uXF-Yz-TeG"/>
+                                    <constraint firstAttribute="height" constant="25" id="FV3-LX-hNV"/>
+                                    <constraint firstAttribute="width" constant="25" id="uXF-Yz-TeG"/>
                                 </constraints>
                             </imageView>
                             <containerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJP-6P-sCn">
@@ -356,7 +356,7 @@
                                     <constraint firstAttribute="height" constant="30" id="FHa-8S-ni8"/>
                                     <constraint firstAttribute="width" constant="30" id="wIS-EM-IDq"/>
                                 </constraints>
-                                <state key="normal" image="User Icon"/>
+                                <state key="normal" image="UserIcon"/>
                                 <connections>
                                     <action selector="userInfoButton:" destination="mhZ-8H-u4Y" eventType="touchUpInside" id="P3K-10-NzX"/>
                                 </connections>
@@ -554,9 +554,9 @@
     <resources>
         <image name="Bg" width="376" height="725.33331298828125"/>
         <image name="CurrentLocationBtn" width="124" height="123.66666412353516"/>
-        <image name="User Icon" width="104.33333587646484" height="104.33333587646484"/>
+        <image name="UserIcon" width="104.33333587646484" height="104.33333587646484"/>
         <image name="appCityBg" width="1280" height="720"/>
-        <image name="centerCross" width="130.66667175292969" height="130.66667175292969"/>
+        <image name="centerPin" width="651.66668701171875" height="1024.3333740234375"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mXn-3j-Hur"/>

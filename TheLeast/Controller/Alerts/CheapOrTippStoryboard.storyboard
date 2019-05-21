@@ -31,24 +31,24 @@
                                 <rect key="frame" x="75" y="144" width="264" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE9-00-9Ox">
-                                        <rect key="frame" x="104" y="48" width="56.5" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <rect key="frame" x="105" y="48" width="54" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sadfmlskdflsk lknlkvnd d lfvnldkngfe dflkn ldfng" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-6p-KJP">
-                                        <rect key="frame" x="28" y="90.5" width="208" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-6p-KJP">
+                                        <rect key="frame" x="28" y="81.5" width="208" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="208" id="9oT-Ea-qa3"/>
-                                            <constraint firstAttribute="height" constant="41" id="TaD-3v-7IH"/>
+                                            <constraint firstAttribute="height" constant="18" id="TaD-3v-7IH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTL-2J-Bba">
-                                        <rect key="frame" x="82" y="155.5" width="100" height="50"/>
+                                        <rect key="frame" x="82" y="123.5" width="100" height="88"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="cZw-kW-cwf"/>
+                                            <constraint firstAttribute="height" constant="88" id="cZw-kW-cwf"/>
                                             <constraint firstAttribute="width" constant="100" id="u7K-3x-uzx"/>
                                         </constraints>
                                         <nil key="textColor"/>
@@ -56,13 +56,13 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="numberPad" returnKeyType="next"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-My-KiB">
-                                        <rect key="frame" x="46" y="236" width="172" height="40"/>
+                                        <rect key="frame" x="39.5" y="236" width="185" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kp6-D0-kH3"/>
-                                            <constraint firstAttribute="width" constant="172" id="WAV-55-EWh"/>
+                                            <constraint firstAttribute="width" constant="185" id="WAV-55-EWh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Add">
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Add Door Number">
                                             <color key="titleColor" red="0.0" green="0.3472509359" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -90,7 +90,7 @@
                                     <constraint firstItem="lTL-2J-Bba" firstAttribute="centerX" secondItem="6M7-LZ-Hkt" secondAttribute="centerX" id="675-ad-3UM"/>
                                     <constraint firstAttribute="bottom" secondItem="5KH-My-KiB" secondAttribute="bottom" constant="24" id="6sK-Xh-rfm"/>
                                     <constraint firstItem="wE9-00-9Ox" firstAttribute="centerX" secondItem="6M7-LZ-Hkt" secondAttribute="centerX" id="A6c-BH-yU0"/>
-                                    <constraint firstItem="tKf-6p-KJP" firstAttribute="top" secondItem="wE9-00-9Ox" secondAttribute="bottom" constant="16" id="DEm-Y9-VOi"/>
+                                    <constraint firstItem="tKf-6p-KJP" firstAttribute="top" secondItem="wE9-00-9Ox" secondAttribute="bottom" constant="8" id="DEm-Y9-VOi"/>
                                     <constraint firstItem="P2t-bC-Eeg" firstAttribute="top" secondItem="6M7-LZ-Hkt" secondAttribute="top" constant="12" id="WKh-ZT-iZR"/>
                                     <constraint firstAttribute="trailing" secondItem="P2t-bC-Eeg" secondAttribute="trailing" constant="12" id="YLA-VB-NLH"/>
                                     <constraint firstAttribute="height" constant="300" id="dJH-NY-ZZT"/>

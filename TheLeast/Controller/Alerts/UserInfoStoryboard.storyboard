@@ -41,7 +41,7 @@
                                             <action selector="exitBtn:" destination="Ilw-Rt-uFv" eventType="touchUpInside" id="Yyg-xa-Pz1"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" highlightedImage="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-Rd-qiH">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" highlightedImage="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-Rd-qiH">
                                         <rect key="frame" x="70" y="32" width="90" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="WSb-ms-5bH"/>
@@ -49,7 +49,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIc-KY-bQ2">
-                                        <rect key="frame" x="52.5" y="224" width="125" height="30"/>
+                                        <rect key="frame" x="52.5" y="216" width="125" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="VmB-A8-gsO"/>
                                         </constraints>
@@ -75,7 +75,7 @@
                                     <constraint firstAttribute="width" constant="230" id="86y-Gw-UgE"/>
                                     <constraint firstAttribute="trailing" secondItem="7K7-kD-TFC" secondAttribute="trailing" constant="8" id="DIG-2C-LLT"/>
                                     <constraint firstItem="7K7-kD-TFC" firstAttribute="top" secondItem="GkP-dg-cHv" secondAttribute="top" constant="8" id="Ocf-lP-8tl"/>
-                                    <constraint firstAttribute="bottom" secondItem="yIc-KY-bQ2" secondAttribute="bottom" constant="16" id="QQB-wJ-KFS"/>
+                                    <constraint firstAttribute="bottom" secondItem="yIc-KY-bQ2" secondAttribute="bottom" constant="24" id="QQB-wJ-KFS"/>
                                     <constraint firstItem="KcY-2u-i7N" firstAttribute="centerX" secondItem="GkP-dg-cHv" secondAttribute="centerX" id="Rgq-nR-uhe"/>
                                     <constraint firstItem="yIc-KY-bQ2" firstAttribute="centerX" secondItem="GkP-dg-cHv" secondAttribute="centerX" id="Yhp-Go-U0a"/>
                                     <constraint firstItem="KcY-2u-i7N" firstAttribute="top" secondItem="7qe-Rd-qiH" secondAttribute="bottom" constant="16" id="j6X-bA-b7s"/>
@@ -125,6 +125,6 @@
     </scenes>
     <resources>
         <image name="ExitBtn" width="257" height="257.5"/>
-        <image name="User Icon" width="104" height="104.5"/>
+        <image name="UserIcon" width="104" height="104.5"/>
     </resources>
 </document>
