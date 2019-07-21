@@ -20,6 +20,7 @@ class CheapOrTippController : UIViewController {
     @IBOutlet weak var descLable: UILabel!
     @IBOutlet weak var cancleBtn: UIButton!
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var topMarginConstrain: NSLayoutConstraint!
     
     
     @IBOutlet weak var doorNumberText: UITextField!
@@ -37,6 +38,12 @@ class CheapOrTippController : UIViewController {
     
     
     func setupView(){
+        
+        let screenHeight = self.view.frame.height
+        
+        if screenHeight <= 667.0 {
+            topMarginConstrain.constant = 20
+        }
         doorNumberText.layer.borderWidth = 1
         doorNumberText.layer.cornerRadius = 10
         doorNumberText.layer.borderColor = UIColor.gray.cgColor

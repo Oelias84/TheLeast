@@ -114,6 +114,7 @@
                         <outlet property="descLable" destination="tKf-6p-KJP" id="aec-t5-xKR"/>
                         <outlet property="doorNumberText" destination="lTL-2J-Bba" id="inB-gp-duZ"/>
                         <outlet property="titleLable" destination="wE9-00-9Ox" id="KdT-T2-Y3q"/>
+                        <outlet property="topMarginConstrain" destination="LJn-iG-fW6" id="nYs-jh-v8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMr-aF-BiM" userLabel="First Responder" sceneMemberID="firstResponder"/>

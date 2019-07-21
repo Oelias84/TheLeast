@@ -57,6 +57,8 @@ class UserInfoController: UIViewController {
     @IBAction func logoutButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         delegate?.logoutBtnTapped()
+       
+        //self.dismiss(animated: true, completion: nil)
         logoutUser()
     }
     
@@ -75,6 +77,7 @@ class UserInfoController: UIViewController {
     
     
     func logoutUser(){
+       
         let user: Parameters = [
             "name": name,
             "password": password
@@ -86,5 +89,7 @@ class UserInfoController: UIViewController {
                 let _: Bool = KeychainWrapper.standard.set(true, forKey: "isStartAnimation")
             }
         }
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+
     }
 }

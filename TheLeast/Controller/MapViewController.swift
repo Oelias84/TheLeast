@@ -21,13 +21,15 @@ protocol HandleMapSearch: class {
 
 open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDelegate{
     
+    @IBOutlet weak var locationContainerconstrain: NSLayoutConstraint!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationInfo: UILabel!
     @IBOutlet weak var centerPinImag: UIImageView!
     @IBOutlet weak var cheapedButton: UIButton!
+    @IBOutlet weak var cheappedButtonWidth: NSLayoutConstraint!
     @IBOutlet weak var tippedButton: UIButton!
+    @IBOutlet weak var tippedButtonWidth: NSLayoutConstraint!
     @IBOutlet weak var uiContainer: UIView!
-    @IBOutlet weak var currentLocationConstrain: NSLayoutConstraint!
     @IBOutlet weak var searchLook: UINavigationItem!
     @IBOutlet weak var userInfoView: UIView!
     
@@ -120,7 +122,7 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
     }
     
     
-    //Add customer to database
+    //MARK:Add customer to database
     func postCustomerData(url: String, customer: CustomerItem, isTipped: Bool){
         loginAnimation()
         let customerParams: [String: Any] =
@@ -141,22 +143,27 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
                     print("New customer added")
                     self.checkAnimation()
                     self.getCustomersData()
+                    
                     print(self.customerList.count)
+                case 300:
+                    print("Customer exist updating")
+                    self.updateCustomerData(url: url, customer: customerParams, isTipped: isTipped)
                 case 500:
                     print("somthing is missing: \(respone.description)")
                 case 400:
                     print(respone.description)
-                    print("Customer exist updating")
-                    self.updateCustomerData(url: url, customer: customerParams, isTipped: isTipped)
+                    self.present(self.alertService.alert(mainTitle: "Oppsy!", descText: respone.value!.description , buttonTitle:"Ok", isGood: false, needButton: true), animated: true)
                 default:
                     break
                 }
             }
         }
+        
+        self.mapView.reloadInputViews()
     }
     
     
-    //Update customer
+    //MARK:Update customer
     func updateCustomerData(url: String, customer: [String: Any], isTipped: Bool ) {
         loginAnimation()
         Alamofire.request(url + "/update", method: .put, parameters: customer, encoding: JSONEncoding.default).responseString {
@@ -248,7 +255,7 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
             setUpLocationManager()
             checkLocationAuthorization()
         }else{
-            present(self.alertService.alert(mainTitle: "No Service", descText: "Please check your connection", buttonTitle:"KO", isGood: false, needButton: true), animated: true) {
+            present(self.alertService.alert(mainTitle: "No Service", descText: "Please check your connection", buttonTitle:"Ok", isGood: false, needButton: true), animated: true) {
             }
         }
     }
@@ -332,7 +339,7 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
     }
     
     
-    ////////Change Buttons Apperiance
+    //Change Buttons Apperiance
     func uiTipButton(button: UIButton) {
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 15
@@ -345,17 +352,28 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
         button.layer.borderColor = UIColor.blue.cgColor
     }
     
-    ///////Change Location Container Apperiance
+    //Change Location Container Apperiance
     func uiContainerDesign(){
+        let screenHeight = self.view.frame.height
         uiContainer.layer.masksToBounds = false
         uiContainer.layer.shadowColor = UIColor.black.cgColor
         uiContainer.layer.shadowOpacity = 0.1
         uiContainer.layer.shadowOffset = CGSize(width: -1, height: 1)
         uiContainer.layer.shadowRadius = 5
         uiContainer.layer.cornerRadius = 30.0
+        
+        if screenHeight <= 667.0 {
+            locationContainerconstrain.constant = -30
+            self.tippedButtonWidth.constant = 120
+            self.cheappedButtonWidth.constant = 120
+            
+        }else{
+            locationContainerconstrain.constant = 0
+        }
+        
     }
     
-    ///////Change NavigationBar Apperiance
+    //Change NavigationBar Apperiance
     func navegationBarDesign(){
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -364,7 +382,7 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
     }
     
     
-    /////////Delete: alert function
+    //Delete: alert function
     func alert(message: String, title: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
@@ -373,7 +391,7 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
         present(alert, animated: true, completion: nil)
     }
     
-    /////////tips alerts function
+    //MARK:tips alerts function
     func tippAlert(title: String, isTipped: Bool, newCustomer: CustomerItem){
         
         var cheapOrTipp = String()
@@ -381,18 +399,20 @@ open class MapViewController: UIViewController, CheapOrTippDelegate, UserInfoDel
             cheapOrTipp = "Customer Tipped"
         }else{
             cheapOrTipp = "Customer Cheapped"
-            
         }
+        
         let alertController = alertService.cheapOrTippAlert(mainTitle: cheapOrTipp, descText: "\(newCustomer.streetName + " " + newCustomer.houseNumber)", isTipped: isTipped)
         alertController.delegate = self
         present(alertController, animated: true)
         
         if newCustomer.streetName == ""{
-            present(self.alertService.alert(mainTitle: "Street Name missing", descText: "Please make sure you have avalid address", buttonTitle:"KO", isGood: false, needButton: true), animated: true)
+            present(self.alertService.alert(mainTitle: "Street Name missing", descText: "Please make sure you have avalid address", buttonTitle:"OK", isGood: false, needButton: true), animated: true)
         } else if newCustomer.houseNumber == ""{
-            present(self.alertService.alert(mainTitle: "House Number missing", descText: "Please make sure you havea valid address", buttonTitle:"KO", isGood: false, needButton: true), animated: true)
+            present(self.alertService.alert(mainTitle: "House Number missing", descText: "Please make sure you havea valid address", buttonTitle:"Ok", isGood: false, needButton: true), animated: true)
         } else if newCustomer.city == ""{
-            present(self.alertService.alert(mainTitle: "City Name missing", descText: "Please make sure you have avalid address", buttonTitle:"KO", isGood: false, needButton: true), animated: true)
+            present(self.alertService.alert(mainTitle: "City Name missing", descText: "Please make sure you have avalid address", buttonTitle:"Ok", isGood: false, needButton: true), animated: true)
+        }else{
+            postCustomerData(url: self.URL, customer: centerLocationAddress, isTipped: hasTipped)
         }
         
     }
@@ -520,10 +540,10 @@ extension MapViewController: HandleMapSearch {
             searchedCustomerAddress.city = city
         }
         
-        // cache the pin
+        //Cache the pin
         selectedPin = placemark
         
-        // clear existing pins
+        //Clear existing pins
         mapView.removeAnnotations(mapView.annotations)
         var doors = "Door Number: "
         var doorArray = [String]()

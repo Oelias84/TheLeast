@@ -15,6 +15,11 @@ import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var welcomeLable: UILabel!
+    @IBOutlet weak var welcomeLableConstrain: NSLayoutConstraint!
+    
+    @IBOutlet weak var dashLable: UILabel!
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -23,26 +28,94 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     
     @IBOutlet weak var errorUserNameLable: UILabel!
     @IBOutlet weak var errorPasswordLable: UILabel!
+    
     let isStartAnimation: Bool? = KeychainWrapper.standard.bool(forKey: "isStartAnimation")
     let retrievedUserName: String? = KeychainWrapper.standard.string(forKey: "userName")
     let retrievedUserPassword: String? = KeychainWrapper.standard.string(forKey: "password")
     
     let URL = "https://frozen-meadow-31076.herokuapp.com/api/users/"
     let alertService = AlertService()
-    
+    let backgroundImageView =  UIImageView()
     var animationView = AnimationView()
     var myView = UIView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         if isStartAnimation != false{
             startAnimation()
         }else{
             checkIfLoged()
+        }   
+        setUp()
+        setBackground()
+        keyboardListenr()
+    }
+    
+    @objc func keyboardWillChange(notification: Notification){
+        
+    }
+    
+    func setBackground(){
+        let size = self.view.frame.height
+
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundImageView.image = UIImage(named: "Background")
+        view.sendSubviewToBack(backgroundImageView)
+        
+        
+        if (size < 667.0 ){
+            textSize(size: 35.0)
+            welcomeLableConstrain.constant = 0
+        }else{
+            textSize(size: 40.0)
+            welcomeLableConstrain.constant = 70
         }
         
-        setUp()
+    }
+    
+    
+    func textSize(size: CGFloat){
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5.0
+        
+        let attrString = NSMutableAttributedString(string: "Welcome To\nThe Least\n-")
+        
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        welcomeLable.font = welcomeLable.font.withSize(size)
+        welcomeLable.attributedText = attrString
+    }
+    
+    
+    func keyboardListenr(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanges(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanges(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanges(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    
+    @objc func keyboardChanges(notification: Notification) {
+        let size = self.view.frame.height
+        
+        if (size < 667.0 ){
+            self.view.frame.origin.y = -180
+        }else{
+            self.view.frame.origin.y = -220
+        }
         
     }
     
@@ -51,7 +124,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-    
         notRegisteredButton.setTitle("Don't have an account?", for: .focused)
         
         //login button design
@@ -61,7 +133,10 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         uiThextFieldChange(ui: userNameTextField)
         uiThextFieldChange(ui: passwordTextField)
         tapGesture()
+        
     }
+    
+
     
     @IBAction func loginButton(_ sender: Any) {
         loginAnimation()
@@ -122,7 +197,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     }
     
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextField {
             if (textField.text?.count)! > 4 && textField.text?.count != 0{
@@ -137,12 +211,14 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
             if (textField.text?.count)! > 4 && textField.text?.count != 0{
                 textField.resignFirstResponder()
                 self.errorPasswordLable.isHidden = true
+                view.frame.origin.y = 0
                 loginAnimation()
                 login()
             }else{
                 self.errorPasswordLable.isHidden = false
                 self.errorPasswordLable.text = "Password must contain 5 charecters"
             }
+            self.view.frame.origin.y = 0
         }
         return true
     }
@@ -155,17 +231,18 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
     @objc func tableViewTapped(){
         userNameTextField.endEditing(true)
         passwordTextField.endEditing(true)
+        view.frame.origin.y = 0
     }
     
     
-    //MARK: Text filed ui design
+    //MARK: - Text filed ui design
     func uiThextFieldChange(ui: UITextField) {
         ui.layer.borderWidth = 1.5
         ui.layer.borderColor = UIColor.blue.cgColor
         ui.layer.cornerRadius = 10
     }
     
-    //MARK: button ui design
+    //MARK: - button ui design
     func uiButtonChane(button: UIButton) {
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 10
@@ -175,7 +252,7 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         button.layer.shadowOpacity = 0.5
     }
     
-    //Check if User is logged
+    //MARK: - Check if User is logged
     func checkIfLoged(){
         var name = String()
         var password = String()
@@ -198,18 +275,16 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
                     self.performSegue(withIdentifier: "loginToMap", sender: self)
                 }else if respone.response?.statusCode == 300{
                     self.stopAnimation()
-                    print("hi")
                 }
             }else{
                 self.stopAnimation()
-                print("walla")
                 print(respone.response?.statusCode as Any)
             }
         }
     }
     
     
-    //User login
+    //MARK: - User login
     func login() {
         let user: Parameters = [
             "name": self.userNameTextField.text!,
