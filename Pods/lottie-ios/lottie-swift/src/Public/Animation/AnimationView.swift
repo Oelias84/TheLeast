@@ -553,6 +553,7 @@ final public class AnimationView: LottieView {
     var position = animation.bounds.center
     let xform: CATransform3D
     var shouldForceUpdates: Bool = false
+    
     switch contentMode {
     case .scaleToFill:
       position = bounds.center
