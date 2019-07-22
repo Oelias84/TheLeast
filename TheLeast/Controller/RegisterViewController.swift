@@ -22,7 +22,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var userNameErrorLable: UILabel!
     @IBOutlet weak var emailErrorLable: UILabel!
     @IBOutlet weak var passwordErrorLable: UILabel!
+    @IBOutlet weak var createLable: UILabel!
+    @IBOutlet weak var creatLableConstrain: NSLayoutConstraint!
     
+    
+    let backgroundImageView =  UIImageView()
     let alertService = AlertService()
     var animationView = AnimationView()
     var myView = UIView()
@@ -37,12 +41,76 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         uiThextFieldChange(ui: userNameTextField)
         
         tapGesture()
+        
+        setBackground()
+        keyboardListenr()
+    }
+    
+    func setBackground(){
+        let size = self.view.frame.height
+        
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundImageView.image = UIImage(named: "Background")
+        view.sendSubviewToBack(backgroundImageView)
+        
+        
+        if (size < 667.0 ){
+            textSize(size: 35.0)
+            creatLableConstrain.constant = 0
+        }else{
+            textSize(size: 40.0)
+            creatLableConstrain.constant = 70
+        }
+        
+    }
+    
+    
+    func keyboardListenr(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanges(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanges(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanges(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    
+    @objc func keyboardChanges(notification: Notification) {
+        let size = self.view.frame.height
+        
+        if (size < 667.0 ){
+            self.view.frame.origin.y = -210
+        }else{
+            self.view.frame.origin.y = -220
+        }
+        
     }
     
     @IBAction func registerBurtton(_ sender: Any) {
         loginAnimation()
         userRgister()
     }
+    
+    func textSize(size: CGFloat){
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5.0
+        
+        let attrString = NSMutableAttributedString(string: "Create\nYour\nAccount")
+        
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        
+        createLable.font = createLable.font.withSize(size)
+        createLable.attributedText = attrString
+    }
+    
     
     //Assures The prompt information from the user
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -124,6 +192,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         userNameTextField.endEditing(true)
         emailTextField.endEditing(true)
         passwordTextField.endEditing(true)
+        view.frame.origin.y = 0
     }
     
 

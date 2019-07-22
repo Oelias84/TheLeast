@@ -133,7 +133,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
         uiThextFieldChange(ui: userNameTextField)
         uiThextFieldChange(ui: passwordTextField)
         tapGesture()
-        
     }
     
 

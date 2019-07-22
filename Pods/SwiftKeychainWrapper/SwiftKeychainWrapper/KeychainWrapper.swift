@@ -115,7 +115,7 @@ open class KeychainWrapper {
         var keychainQueryDictionary: [String:Any] = [
             SecClass: kSecClassGenericPassword,
             SecAttrService: serviceName,
-            SecReturnAttributes: kCFBooleanTrue,
+            SecReturnAttributes: kCFBooleanTrue!,
             SecMatchLimit: kSecMatchLimitAll,
         ]
 
@@ -320,7 +320,7 @@ open class KeychainWrapper {
         }
     }
 
-    @available(*, deprecated: 2.2.1, message: "remove is deprecated, use removeObject instead")
+    @available(*, deprecated, message: "remove is deprecated, use removeObject instead")
     @discardableResult open func remove(key: String, withAccessibility accessibility: KeychainItemAccessibility? = nil) -> Bool {
         return removeObject(forKey: key, withAccessibility: accessibility)
     }
