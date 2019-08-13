@@ -10,7 +10,7 @@
 		0D1FFDA18005967D058B6057 /* Pods_TheLeast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9538B80B5F74C006E6FF21 /* Pods_TheLeast.framework */; };
 		7C0778672291A17700F88DF9 /* UserInfoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0778662291A17700F88DF9 /* UserInfoStoryboard.storyboard */; };
 		7C0778692291A1B400F88DF9 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0778682291A1B400F88DF9 /* UserInfoController.swift */; };
-		7C3EB0712294880B00BB5B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C7B087722837279001287B6 /* Assets.xcassets */; };
+		7C4D50352302F4BD0059624F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C4D50342302F4BD0059624F /* Assets.xcassets */; };
 		7C7B0869227B832F001287B6 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C7B0868227B832F001287B6 /* loadingAnimation.json */; };
 		7C7B086D227C89DA001287B6 /* AlertStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7B086C227C89DA001287B6 /* AlertStoryboard.storyboard */; };
 		7C7B086F227C8C34001287B6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7B086E227C8C34001287B6 /* AlertViewController.swift */; };
@@ -57,11 +57,11 @@
 		6C1520EF2F7579BC5A310764 /* Pods-TheLeast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheLeast.debug.xcconfig"; path = "Target Support Files/Pods-TheLeast/Pods-TheLeast.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0778662291A17700F88DF9 /* UserInfoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoStoryboard.storyboard; sourceTree = "<group>"; };
 		7C0778682291A1B400F88DF9 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		7C4D50342302F4BD0059624F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C7B0868227B832F001287B6 /* loadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		7C7B086C227C89DA001287B6 /* AlertStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertStoryboard.storyboard; sourceTree = "<group>"; };
 		7C7B086E227C8C34001287B6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		7C7B0870227CAE47001287B6 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
-		7C7B087722837279001287B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/o.elias/Documents/Apps/TheLeast/TheLeast/Supporting Fiels/Assets.xcassets"; sourceTree = "<absolute>"; };
 		7C7B087922843B63001287B6 /* checkmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkmark.json; sourceTree = "<group>"; };
 		7C7B087F2288B22A001287B6 /* CheapOrTippController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapOrTippController.swift; sourceTree = "<group>"; };
 		7C7B0887228D997E001287B6 /* CheapOrTippStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CheapOrTippStoryboard.storyboard; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		7CAF6B2C2277958800BE7C5F /* Supporting Fiels */ = {
 			isa = PBXGroup;
 			children = (
-				7C7B087722837279001287B6 /* Assets.xcassets */,
+				7C4D50342302F4BD0059624F /* Assets.xcassets */,
 				7CAF6B232277953900BE7C5F /* Info.plist */,
 			);
 			path = "Supporting Fiels";
@@ -274,10 +274,10 @@
 				7C7B0888228D997E001287B6 /* CheapOrTippStoryboard.storyboard in Resources */,
 				7C7B087A22843B63001287B6 /* checkmark.json in Resources */,
 				7CAF6B542278B9DF00BE7C5F /* Main.storyboard in Resources */,
+				7C4D50352302F4BD0059624F /* Assets.xcassets in Resources */,
 				7CAF6B222277953900BE7C5F /* LaunchScreen.storyboard in Resources */,
 				7C7B0869227B832F001287B6 /* loadingAnimation.json in Resources */,
 				7C0778672291A17700F88DF9 /* UserInfoStoryboard.storyboard in Resources */,
-				7C3EB0712294880B00BB5B4F /* Assets.xcassets in Resources */,
 				7C7B086D227C89DA001287B6 /* AlertStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = swift.Oelias.TheLeast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -522,7 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = swift.Oelias.TheLeast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

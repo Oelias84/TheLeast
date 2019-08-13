@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Pv0-XQ-5WG"/>
                                 </constraints>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BYK-uC-mim"/>
@@ -296,7 +296,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXY-jJ-Hkn" userLabel="Location Button">
-                                <rect key="frame" x="322" y="374" width="37" height="37"/>
+                                <rect key="frame" x="322" y="389" width="37" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="37" id="eJe-tq-Cgx"/>
                                     <constraint firstAttribute="height" constant="37" id="fxN-hV-m1j"/>
@@ -307,7 +307,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOw-Pg-Udt" userLabel="Info Button">
-                                <rect key="frame" x="324" y="427" width="35" height="35"/>
+                                <rect key="frame" x="324" y="442" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="CUB-Wx-cmr"/>
                                     <constraint firstAttribute="height" constant="35" id="qIy-bC-o5L"/>
@@ -317,7 +317,7 @@
                                     <action selector="userInfoButton:" destination="mhZ-8H-u4Y" eventType="touchUpInside" id="P3K-10-NzX"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="centerPin" highlightedImage="centerPin" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-tN-4vd">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CenterPin" highlightedImage="centerPin" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-tN-4vd">
                                 <rect key="frame" x="175" y="341" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="D7I-78-CaW"/>
@@ -328,10 +328,10 @@
                                 <rect key="frame" x="87" y="289" width="201" height="89"/>
                             </containerView>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOM-1M-UzX" userLabel="LocationView">
-                                <rect key="frame" x="8" y="494" width="359" height="173"/>
+                                <rect key="frame" x="8" y="497" width="359" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsf-jy-9e0">
-                                        <rect key="frame" x="24" y="77" width="145" height="50"/>
+                                        <rect key="frame" x="24" y="84" width="145" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.3472509358561644" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="FN5-Ge-T7E"/>
@@ -354,7 +354,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLu-am-S2q">
-                                        <rect key="frame" x="190" y="77" width="145" height="50"/>
+                                        <rect key="frame" x="190" y="84" width="145" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="145" id="5NL-44-iAc"/>
                                             <constraint firstAttribute="height" constant="50" id="WyW-b7-FmF"/>
@@ -379,7 +379,7 @@
                                 <constraints>
                                     <constraint firstItem="uIW-qc-9Zv" firstAttribute="leading" secondItem="yOM-1M-UzX" secondAttribute="leading" id="Fgz-o2-FVK"/>
                                     <constraint firstItem="T8b-kD-X96" firstAttribute="leading" secondItem="yOM-1M-UzX" secondAttribute="leading" id="MeQ-Vp-JU7"/>
-                                    <constraint firstAttribute="height" constant="173" id="NZK-yZ-A8E"/>
+                                    <constraint firstAttribute="height" constant="180" id="NZK-yZ-A8E"/>
                                     <constraint firstAttribute="bottom" secondItem="jLu-am-S2q" secondAttribute="bottom" constant="46" id="S7K-Lz-tj5"/>
                                     <constraint firstItem="T8b-kD-X96" firstAttribute="top" secondItem="uIW-qc-9Zv" secondAttribute="bottom" constant="14" id="cKN-Cr-VGx"/>
                                     <constraint firstAttribute="trailing" secondItem="T8b-kD-X96" secondAttribute="trailing" id="ecb-zE-4T0"/>
@@ -395,7 +395,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yOw-Pg-Udt" secondAttribute="trailing" constant="16" id="JbJ-x4-WHu"/>
-                            <constraint firstAttribute="bottom" secondItem="yOM-1M-UzX" secondAttribute="bottom" id="NTW-d1-akK"/>
+                            <constraint firstAttribute="bottom" secondItem="yOM-1M-UzX" secondAttribute="bottom" constant="-10" id="NTW-d1-akK"/>
                             <constraint firstItem="0sw-Jg-TCf" firstAttribute="trailing" secondItem="yOM-1M-UzX" secondAttribute="trailing" constant="8" id="QQX-qu-S0V"/>
                             <constraint firstItem="0sw-Jg-TCf" firstAttribute="trailing" secondItem="yOw-Pg-Udt" secondAttribute="trailing" constant="16" id="Sg2-et-Se0"/>
                             <constraint firstItem="fgm-tN-4vd" firstAttribute="centerX" secondItem="yL9-Eq-NaQ" secondAttribute="centerX" id="SqH-f3-TaS"/>
@@ -407,10 +407,10 @@
                             <constraint firstItem="vkE-dZ-bqf" firstAttribute="centerY" secondItem="uJP-6P-sCn" secondAttribute="centerY" id="fiJ-Ol-9dd"/>
                             <constraint firstItem="vkE-dZ-bqf" firstAttribute="centerX" secondItem="uJP-6P-sCn" secondAttribute="centerX" id="gIf-n1-wwk"/>
                             <constraint firstItem="yOM-1M-UzX" firstAttribute="leading" secondItem="0sw-Jg-TCf" secondAttribute="leading" constant="8" id="gKM-xI-iIa"/>
+                            <constraint firstItem="yOM-1M-UzX" firstAttribute="top" secondItem="yOw-Pg-Udt" secondAttribute="bottom" constant="20" id="hsO-cn-JdE"/>
                             <constraint firstItem="vkE-dZ-bqf" firstAttribute="centerX" secondItem="yL9-Eq-NaQ" secondAttribute="centerX" id="jNc-6u-Mk8"/>
                             <constraint firstAttribute="trailing" secondItem="DXY-jJ-Hkn" secondAttribute="trailing" constant="16" id="nuC-Lh-CzQ"/>
                             <constraint firstItem="fgm-tN-4vd" firstAttribute="centerY" secondItem="yL9-Eq-NaQ" secondAttribute="centerY" constant="20" id="r72-r3-OZu"/>
-                            <constraint firstItem="yOM-1M-UzX" firstAttribute="top" secondItem="yOw-Pg-Udt" secondAttribute="bottom" constant="32" id="wjb-o1-Kie"/>
                             <constraint firstItem="uJP-6P-sCn" firstAttribute="top" secondItem="0sw-Jg-TCf" secondAttribute="top" constant="225" id="wyI-so-lAP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0sw-Jg-TCf"/>
@@ -521,12 +521,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CenterPin" width="652" height="1024.5"/>
         <image name="CurrentLocationBtn" width="124" height="124"/>
         <image name="UserIcon" width="104" height="104.5"/>
         <image name="centerPin" width="652" height="1024.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mXn-3j-Hur"/>
+        <segue reference="wyJ-eG-GTf"/>
         <segue reference="QI9-YT-VYu"/>
     </inferredMetricsTieBreakers>
 </document>
